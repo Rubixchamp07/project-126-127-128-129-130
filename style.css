@@ -14,12 +14,22 @@
 
 body
 {
-    background-size: cover;
+    background-size:cover;
+    background-position: center;
 }
 
-canvas{
+canvas
+{
     border: 5px;
     border-color: lime;
     box-shadow: red;
     
+}
+
+.song
+{
+    border-radius: 20px;
+    box-shadow: blue;
+    font-size: 15px;
+    font-family: cursive;
 }
