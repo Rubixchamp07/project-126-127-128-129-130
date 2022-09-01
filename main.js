@@ -1,10 +1,19 @@
 song1 = '';
 song2 = '';
+
+song1_status = "";
+song2_status = "";
+
 leftWristX = 0;
 leftWristY = 0;
+
+
 rightWristX = 0;
 rightWristY = 0;
+
 scoreLeftWrist = 0;
+scoreRightWrist = 0;
+
 isPlaying = '';
 
 function preload(){
@@ -31,6 +40,8 @@ function gotPoses(results){
     if(results.length > 0){
         console.log(results);
         scoreLeftWrist = results[0].pose.keypoints[9].score;
+        scoreRightWrist = results[0].pose.keypoints[10].score;
+        console.log('scoreRightWrist = ' + scoreRightWrist + 'scoreLeftWrist = ' + scoreLeftWrist);
         
         
         leftWristX = results[0].pose.leftWrist.x;
@@ -62,7 +73,7 @@ function draw(){
 		if(song1_status == false)
 		{
 			song1.play();
-			document.getElementById("song1").innerHTML = "Playing - Birthday Song"
+			document.getElementById("song").innerHTML = "Playing - Birthday Song";
 		}
 	}
 
@@ -75,7 +86,7 @@ function draw(){
 		if(song2_status == false)
 		{
 			song2.play();
-			document.getElementById("song2").innerHTML = "Playing - Christmas Miracle"
+			document.getElementById("song").innerHTML = "Playing - Christmas Miracle";
 		}
 	}
 
@@ -83,5 +94,7 @@ function draw(){
 
 function play(){
     song.play();
+    song.volume(1);
+    song.rate(1);
 }
 
